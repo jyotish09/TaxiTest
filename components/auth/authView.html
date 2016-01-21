@@ -1,0 +1,40 @@
+<md-content class="md-padding" ng-style="{background:'#A6A6A6'}">
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+        <md-tab label="login">
+            <md-content class="md-padding" ng-style="{background:'#E0E0E0'}">
+                <h1 class="md-display-2">Log In</h1>
+                <p><md-input-container>
+                    <label>Email</label>
+                    <input ng-model="auth.email" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input type="password" ng-model="auth.password" type="text">
+                </md-input-container>
+                <p class="modal-title" ng-style="{background:'#E0E0E0',color:'red'}" ng-if="display()">{{x}}</p>
+                <md-button class="md-raised md-warn" ng-click="auth.login()">Login</md-button>
+            </md-content>
+        </md-tab>
+        <!-- For some fucked up reason label="register" wasted 3 hrs-->
+        <md-tab label="signup">
+            <md-content class="md-padding" ng-style="{background:'#E0E0E0'}">
+                <h1 class="md-display-2">Sign Up</h1>
+                <p><md-input-container>
+                    <label>User Name</label>
+                    <input ng-model="auth.username" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <label>Email</label>
+                    <input ng-model="auth.email" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input type="password" ng-model="auth.password" type="text">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-click="auth.createUser()">Register</md-button></p>
+            </md-content>
+        </md-tab>
+    </md-tabs>
+
+
+</md-content>
