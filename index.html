@@ -3,7 +3,7 @@
     <head>
         <title>AngularJS Test2</title>
         <meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
         <link rel="stylesheet" href="node_modules/angular-hamburger-toggle-master/dist/angular-hamburger-toggle.min.css">
@@ -16,58 +16,56 @@
     </head>
     <body class="cbp-spmenu-push" ng-app="taxiTest">
         <ul>
-		<li><a ui-sref="login">Login</a></li>
-		<li><a class="active" href="#">Home</a></li>
+            <li><a ui-sref="login">Login</a></li>
+            <li><a ui-sref="home">Home</a></li>
         </ul>
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Extras</h3>
-			<a href="#">User Profile</a>
-			<a href="#">Trip Details Till Date</a>
-			<a href="#">Bug reports</a>
-		</nav>
-	
-		<div class="container">
-		<header class="clearfix">
-			<h1>Test App</h1>
-		</header>
-			<div class="main"> 
-                       <section class="container"> 
-						<div ui-view>
-						
-						</div>
-					</section>    
-                <section class="buttonset"> 						
-					<button>Online</button>
-					<button>Offline</button>
-					<button id="leftPush">Other Options</button>
-				</section>
-                                
-			</div>
-			
-		</div>
-		<script src="js/classie.js"></script>
-		<script>
-			var leftMenu = document.getElementById( 'cbp-spmenu-s1' ),
-				leftPush = document.getElementById( 'leftPush' ),
-				body = document.body;
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+            <h3>Extras</h3>
+            <a href="#">User Profile</a>
+            <a href="#">Trip Details Till Date</a>
+            <a href="#">Bug reports</a>
+        </nav>
 
-			
-			leftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( leftMenu, 'cbp-spmenu-open' );
-				disableOther( 'leftPush' );
-			};
+        <div class="container">
+            <header class="clearfix">
+                <h1>Test App</h1>
+            </header>
+            <div class="main"> 
 
-			function disableOther( button ) {
-				if( button !== 'leftPush' ) {
-					classie.toggle( leftPush, 'disabled' );
-				}
-			}
-		</script>
-        
+                <section class="buttonset"> 
+                    <div ui-view>				
+                        <button>Online</button>
+                        <button>Offline</button>
+                    </div>
+                    <button id="leftPush">Other Options</button>
+                </section>
+
+            </div>
+
+        </div>
+        <script src="js/classie.js"></script>
+        <script>
+            var leftMenu = document.getElementById('cbp-spmenu-s1'),
+                    leftPush = document.getElementById('leftPush'),
+                    body = document.body;
+
+
+            leftPush.onclick = function () {
+                classie.toggle(this, 'active');
+                classie.toggle(body, 'cbp-spmenu-push-toright');
+                classie.toggle(leftMenu, 'cbp-spmenu-open');
+                disableOther('leftPush');
+            };
+
+            function disableOther(button) {
+                if (button !== 'leftPush') {
+                    classie.toggle(leftPush, 'disabled');
+                }
+            }
+        </script>
+
         <!--Dependencies-->
-        
+
         <script src="node_modules/angular/angular.js"></script>
         <script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
         <script src="node_modules/angular-material/angular-material.js"></script>
@@ -78,6 +76,6 @@
         <script src="node_modules/angular-md5/angular-md5.js"></script>
         <script src="node_modules/angular-hamburger-toggle-master/dist/angular-hamburger-toggle.min.js"></script>
         <script src="app.js"></script>
-        
+
     </body>
 </html>
