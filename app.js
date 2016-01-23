@@ -15,6 +15,11 @@
                 .state('home', {
                     url: '/home',
                     templateUrl :'components/home.html'
+                })
+                
+                .state('bug',{
+                    url:'/bug',
+                    templateUrl:'components/bug/bugView.html' //https://material.angularjs.org/latest/demo/input - CodePen Sample
                 });
 
 
