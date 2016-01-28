@@ -54,14 +54,16 @@
                 classie.toggle(this, 'active');
                 classie.toggle(body, 'cbp-spmenu-push-toright');
                 classie.toggle(leftMenu, 'cbp-spmenu-open');
-                disableOther('leftPush');
-            };
-
-            function disableOther(button) {
-                if (button !== 'leftPush') {
-                    classie.toggle(leftPush, 'disabled');
+                //disableOther('leftPush');
+                setTimeout(function(button) {
+                if (button == 'leftPush') {
+                    classie.toggle(leftMenu, 'disabled');
                 }
-            }
+            },1000);
+            };
+            
+            
+            
         </script>
 
         <!--Dependencies-->
@@ -75,7 +77,11 @@
         <script src="node_modules/angularfire/dist/angularfire.js"></script>
         <script src="node_modules/angular-md5/angular-md5.js"></script>
         <script src="node_modules/angular-hamburger-toggle-master/dist/angular-hamburger-toggle.min.js"></script>
+
+        <!--My Scripts-->
         <script src="app.js"></script>
+        <script src="components/auth/authService.js" type="text/javascript"></script>
+        <script src="components/auth/authController.js" type="text/javascript"></script>
 
     </body>
 </html>
