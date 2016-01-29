@@ -37,6 +37,7 @@ body, html { font-size: 100%; 	padding: 0; margin: 0;}
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     color: #47a3da;
+    /*background-image: url(10127.jpg);*/
 
 }
 
@@ -203,12 +204,4 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #258ECD;
-}
-
-.active {
-    background-color: #337B9C;
 }
