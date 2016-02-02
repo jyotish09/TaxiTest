@@ -15,6 +15,7 @@
 
     </head>
     <body class="cbp-spmenu-push" ng-app="taxiTest" >
+
         <ul>
             <li><a ui-sref="login">Login</a></li>
             <li><a href="javascript:window.location='index.html'">Home</a></li>
@@ -23,13 +24,13 @@
             <h3>Extras</h3>
             <a href="#">User Profile</a>
             <a href="#">Trip Details Till Date</a>
-            <a ui-sref="bug">Bug reports</a>
+            <a ui-sref="bug" id="bug">Bug reports</a>
         </nav>
 
         <div class="container">
-<!--            <header class="clearfix">
-                <h1>Test App</h1>
-            </header>-->
+            <!-- <header class="clearfix">
+            <h1>Test App</h1>
+            </header> -->
             <div class="main"> 
 
                 <section class="buttonset"> 
@@ -47,7 +48,7 @@
         <script>
             var leftMenu = document.getElementById('cbp-spmenu-s1'),
                     leftPush = document.getElementById('leftPush'),
-                    body = document.body;
+                    body = document.body, bug = document.getElementById('bug');
 
 
             leftPush.onclick = function () {
@@ -55,15 +56,26 @@
                 classie.toggle(body, 'cbp-spmenu-push-toright');
                 classie.toggle(leftMenu, 'cbp-spmenu-open');
                 //disableOther('leftPush');
-                setTimeout(function(button) {
-                if (button == 'leftPush') {
-                    classie.toggle(leftMenu, 'disabled');
-                }
-            },1000);
             };
-            
-            
-            
+
+            bug.onclick = function () {
+                classie.toggle(this, 'active');
+                classie.toggle(body, 'cbp-spmenu-push-toright');
+                classie.toggle(leftMenu, 'cbp-spmenu-open');
+                //disableOther('leftPush');
+            };
+
+//            function disableOther(button) {
+//                if (button !== 'leftPush') {
+//                    classie.toggle(leftPush, 'disabled');
+//                }
+//                if (button !== 'bug') {
+//                    classie.toggle(bug, 'disabled');
+//                }
+//            }
+
+
+
         </script>
 
         <!--Dependencies-->

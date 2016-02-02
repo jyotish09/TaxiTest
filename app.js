@@ -19,7 +19,7 @@
 
                 .state('bug', {
                     url: '/bug',
-                    templateUrl: 'components/bug/bugView.html'
+                    templateUrl: 'components/bug/bugView.html' //https://material.angularjs.org/latest/demo/input - CodePen Sample
                 });
     });
 
@@ -39,8 +39,16 @@
             'A200': 'ff5252',
             'A400': 'ff1744',
             'A700': 'd50000'
+            //'contrastDefaultColor': '', // whether, by default, text (contrast)
+            // on this palette should be dark or light
+            // https://www.daftlogic.com/projects-hex-colour-tester.htm
+            //'contrastLightColors': undefined    // could also specify this if default was 'dark'
         });
-        $mdThemingProvider.theme('customPalette', 'default').primaryPalette('customPalette').backgroundPalette('grey');
+        
+        var lightBlueMap = $mdThemingProvider.extendPalette('blue',{'A100':'78BDE7'});
+        $mdThemingProvider.definePalette('lightBlue',lightBlueMap);
+        $mdThemingProvider.theme('customPalette', 'default').primaryPalette('customPalette').backgroundPalette('lightBlue');
+//        $mdThemingProvider.theme('default').dark();
     });
 
 
