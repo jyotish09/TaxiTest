@@ -3,14 +3,14 @@
     
     angular.module('taxiTest').controller('BugController',BugController);
     
-    function BugController($rootScope,Bug){
+    function BugController(Bug , $rootScope){
         
         var vm = this;
         
-        vm.send = send;
+        vm.reportBug = reportBug;
         vm.bugData = Bug;
         
-        function send(){
+        function reportBug(){
             if(vm.report){
                 vm.bugData.$add({
                     //Adding the values to Firebase for now
@@ -21,8 +21,11 @@
                         username: $rootScope.loggedInUserData.username,
                         email: $rootScope.loggedInUserData.email
                     }
+                    
+                    
                 });
-                
+                console.log("Report Added successfully to Firebase");
+                window.location='index.html';
                 vm.report = '';
             }
         }
