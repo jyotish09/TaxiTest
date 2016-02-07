@@ -6,9 +6,9 @@
     .module('taxiTest')
     .factory('Bug', BugService);
 
-  function BugService($firebaseAuth) {
-    var ref = new Firebase("https://taxitest.firebaseio.com/bugs");
-    return $firebaseAuth(ref);
+  function BugService($firebaseArray) {
+    var refBug = new Firebase("https://taxitest.firebaseio.com/bugs");
+    return $firebaseArray(refBug);
   }
 
 })();
