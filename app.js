@@ -22,7 +22,7 @@
                     templateUrl: 'components/bug/bugView.html'
                 });
     });
-
+    // For Custom Theme
     taxiTest.config(function ($mdThemingProvider) {
         $mdThemingProvider.definePalette('customPalette', {
             '50': 'ffebee',
