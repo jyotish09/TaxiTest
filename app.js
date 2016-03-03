@@ -9,20 +9,33 @@
 
                 .state('login', {
                     url: '/login',
-                    templateUrl: 'components/auth/authView.html'
-                })
-
-                .state('home', {
-                    url: '/home',
-                    templateUrl: 'components/home.html'
+                    templateUrl: 'components/auth/authView.html',
+                    controller: 'AuthController as auth'
                 })
 
                 .state('bug', {
                     url: '/bug',
-                    templateUrl: 'components/bug/bugView.html'
+                    templateUrl: 'components/bug/bugView.html',
+                    controller : 'BugController as bug' 
+                })
+
+                .state('online', {
+                    url: '/online',
+                    templateUrl: 'components/online/onlineView.html'
                 });
-    });
-    // For Custom Theme
+    })
+            .run(function ($rootScope, $state, User) {
+                $rootScope.$on('$stateChangeStart', function () {
+                    var loggedInUser = User.getLoggedInUser();
+
+                    if (loggedInUser) {
+                        $rootScope.loggedInUserData = User.getUserData(loggedInUser.uid);
+                    }
+                });
+
+                ;
+            });
+
     taxiTest.config(function ($mdThemingProvider) {
         $mdThemingProvider.definePalette('customPalette', {
             '50': 'ffebee',
@@ -35,16 +48,18 @@
             '700': 'd32f2f',
             '800': 'c62828',
             '900': 'b71c1c',
-            'A100': 'ff8a80', //Only this one is used
+            'A100': 'ff8a80',
             'A200': 'ff5252',
             'A400': 'ff1744',
             'A700': 'd50000'
         });
-        
-        var lightBlueMap = $mdThemingProvider.extendPalette('blue',{'A100':'78BDE7'});
-        $mdThemingProvider.definePalette('lightBlue',lightBlueMap);
+
+        var lightBlueMap = $mdThemingProvider.extendPalette('blue', {'A100': '78BDE7'});
+        $mdThemingProvider.definePalette('lightBlue', lightBlueMap);
         $mdThemingProvider.theme('customPalette', 'default').primaryPalette('customPalette').backgroundPalette('lightBlue');
     });
+
+
 
 
 })();
